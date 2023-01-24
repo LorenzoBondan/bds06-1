@@ -23,7 +23,7 @@ public class ReviewResource {
 	@Autowired
 	private ReviewService reviewService;
 	
-	@PreAuthorize("hasAnyRole('MEMBER')")
+	@PreAuthorize("hasAnyRole('MEMBER')") // SOMENTE OS MEMBERS PODEM USAR ESSE ENDPOINT
 	@PostMapping
 	public ResponseEntity<ReviewDTO> insert(@Valid @RequestBody ReviewDTO reviewDTO) {
 		reviewDTO = reviewService.insert(reviewDTO);

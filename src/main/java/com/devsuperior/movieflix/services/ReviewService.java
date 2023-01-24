@@ -34,7 +34,7 @@ public class ReviewService {
 	
 	@Transactional
 	public ReviewDTO insert(ReviewDTO reviewDTO) {
-		User user = authService.authenticated();
+		User user = authService.authenticated(); // VERIFICAR SE É UM USUÁRIO VÁLIDO
 		
 		Review review = new Review();
 		review.setText(reviewDTO.getText());

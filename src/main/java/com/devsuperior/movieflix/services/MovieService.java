@@ -30,9 +30,9 @@ public class MovieService {
 	@Transactional(readOnly = true)
 	public Page<MovieDTO> findByGenre(Long genreId, Pageable pageable) {
 		Page<Movie> page = null;
-		if(genreId == 0) {
+		if(genreId == 0) { // TRAZER TUDO QUANDO LIMPAR O CAMPO DE BUSCA
 			page = repository.findWhenGenreNullOrZero(pageable);
-		} else {
+		} else { // TRAZER SÓ OS FILMES DO GÊNERO SELECIONADO
 			page = repository.findByGenre(genreId, pageable);
 			
 		}
